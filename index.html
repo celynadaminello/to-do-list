@@ -15,11 +15,15 @@
 <body>
 
     <div class="title-src">
-        <h1>To-Do-List</h1>
-        <input id="input-txt" type="text" onchange="mozaovaimemamar(this)">
+        <h1 id="teste">To-Do-List</h1>
+        <input id="input-txt" type="text" onchange="txtList(this)">
     </div>
 
-    <div class="container"></div>
+    <div id="container">
+        <ul></ul>
+    </div>
+
+    <div id="button" onclick="clearButton(this)">Clear</div>
 
     <script src="./js/script.js"></script>
     

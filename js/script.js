@@ -1,8 +1,23 @@
+onload = function() {
+   // let elementList = localStorage.getItem("elementList");
+   // elementList.innerHTML = elementList;
+   //let jsonTasks = [];
+   var tasks = localStorage.getItem("textTask");
+   var textTask = JSON.parse(tasks);
+   console.log(textTask.id);
+   tasks.innerHTML = textTask
+   //tasks.innerHTML = "textTask"
+
+}
+
 const elementInput = document.querySelector("input");
 const elementSend = document.querySelector("button");
 const elementList = document.querySelector("ul");
 
-const tasks = [];
+var tasks = [];
+
+elementSend.setAttribute('onclick', 'addTask()');
+elementInput.setAttribute('onchange', 'addTask()');
 
 function getTask(){
 
@@ -16,7 +31,7 @@ function getTask(){
         elementList.appendChild(elementTask);
     }
 }
-getTask() 
+//getTask() 
 
 
 function addTask(){
@@ -24,8 +39,17 @@ function addTask(){
     tasks.push(textTask)
     elementInput.value = "";
 
+    console.log(textTask)
+
+    //var jsonTasks = JSON.stringify(tasks);
+
+    localStorage.setItem("textTask", JSON.stringify(tasks));
+
+    //console.log(window.localStorage.getItem("textTask"))
+
+    console.log(localStorage)
+
     getTask()
 
 }
 
-elementSend.setAttribute('onclick', 'addTask()')

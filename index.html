@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./assets/lista-de-afazeres.png">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/lista-de-afazeres.png" />
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet"/>
 
     <title>To-Do-List</title>
+  </head>
 
-</head>
+  <body>
 
-<body>
+    <div class="container">
 
-    <div class="title-src">
-        <h1 id="teste">To-Do-List</h1>
-        <input id="input-txt" type="text" onchange="txtList(this)">
-        <i class='bx bx-plus-circle' onclick="txtList()"></i>
+      <div class="title-src">
+        <h1>To-Do-List</h1>
+        <input id="input-txt" type="text"  />
+       <button id="send-txt"> <i class="bx bx-plus-circle" ></i> </button>
+      </div>
+
+      <div id="content-task">
+        <ul class="task-list"></ul>
+      </div>
+
+      <div id="clear-txt" 
+           onclick="">Clear</div>
+
     </div>
-
-    <div id="container">
-        <ul></ul>
-    </div>
-
-    <div id="button" onclick="clearButton(this)">Clear</div>
 
     <script src="./js/script.js"></script>
-    
-</body>
 
+  </body>
 </html>
-

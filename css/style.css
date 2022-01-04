@@ -17,7 +17,7 @@ body{
     
 }
 
-#container{
+#content-task{
     width: 500px;
     height: 650px;
     margin-top: 15px;
@@ -25,7 +25,7 @@ body{
     
 }
 
-.title-src, #container{
+.title-src, #content-task{
     
     text-align: center;
     color:#161853;
@@ -37,7 +37,7 @@ body{
 
 }
 
-#button{
+#clear-txt{
 
     width: 90px;
     height: 25px;
@@ -61,6 +61,16 @@ body{
     background-color: #F9F9F9;
     margin-top: 10px;
 }
+
+#send-txt{
+    background: none;
+    border: none;
+}
+li {
+    list-style-type: none;
+}
+
+
 
 
 

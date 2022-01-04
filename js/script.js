@@ -1,31 +1,31 @@
-onload = function(){
+const elementInput = document.querySelector("input");
+const elementSend = document.querySelector("button");
+const elementList = document.querySelector("ul");
 
-    let container = localStorage.getItem("container");
-    let content = document.getElementById("container");
-    content.innerHTML = container;
+const tasks = [];
+
+function getTask(){
+
+    elementList.innerHTML = "";
+
+    for (task of tasks){
+        const elementTask = document.createElement("li");
+        const textTask= document.createTextNode(task);
+
+        elementTask.appendChild(textTask);
+        elementList.appendChild(elementTask);
+    }
 }
-     
-    function txtList(t) {
+getTask() 
 
-    let addTxt = t.value;
-    console.log(addTxt);
-    
-    let content = document.getElementById("container");
-    content.innerHTML = addTxt;
 
-    let list = []
+function addTask(){
+    const textTask= elementInput.value;
+    tasks.push(textTask)
+    elementInput.value = "";
 
-    let taskList = document.createElement("li");
-    taskList.innerHTML = addTxt;
+    getTask()
 
-    localStorage.setItem("container", addTxt);
-    
-    
-} 
+}
 
-/*function clearButtom(e){
-
-    let erase = e.value;
-    let erase1 = document.getElementById("buttom");
-    localStorage.clear(this.getElementById("container"));
-} */
+elementSend.setAttribute('onclick', 'addTask()')

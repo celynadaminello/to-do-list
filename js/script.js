@@ -1,55 +1,61 @@
-onload = function() {
-   // let elementList = localStorage.getItem("elementList");
-   // elementList.innerHTML = elementList;
-   //let jsonTasks = [];
-   var tasks = localStorage.getItem("textTask");
-   var textTask = JSON.parse(tasks);
-   console.log(textTask.id);
-   tasks.innerHTML = textTask
-   //tasks.innerHTML = "textTask"
-
-}
-
 const elementInput = document.querySelector("input");
 const elementSend = document.querySelector("button");
 const elementList = document.querySelector("ul");
+const elementClear = document.getElementById("clear-txt");
+let elementUl = JSON.parse(localStorage.getItem("saveLocal")) || [];
 
-var tasks = [];
+elementSend.setAttribute("onclick", "addTask()");
+elementInput.setAttribute("onchange", "addTask()");
 
-elementSend.setAttribute('onclick', 'addTask()');
-elementInput.setAttribute('onchange', 'addTask()');
 
-function getTask(){
 
-    elementList.innerHTML = "";
+    function addTask(){
+        var textTask= elementInput.value;
 
-    for (task of tasks){
-        const elementTask = document.createElement("li");
-        const textTask= document.createTextNode(task);
+        if (elementInput == "") {
+             
+            alert("Write your Task")
+        }
+        else{
 
-        elementTask.appendChild(textTask);
-        elementList.appendChild(elementTask);
+            elementUl.push(textTask)
+            elementInput.value = "";
+
+            getTask()
+            saveLocal()
+        }   
+}
+
+    function getTask(){
+
+        elementList.innerHTML = "";
+
+        for (task of elementUl){
+
+            console.log(task)
+            const elementTask = document.createElement("li");
+            const textTask= document.createTextNode(task);
+            //const id = elementUl.indexOf(task);
+            const elementClear = document.createElement('trash');
+            const pos = elementClear.indexOf(task);
+
+            elementClear.setAttribute("onclick", `clearAll(${pos})`);
+
+            elementTask.appendChild(textTask);
+            elementList.appendChild(elementTask);
+            elementTask.appendChild(elementClear);
+        }
+}
+            getTask()
+
+    function saveLocal() {
+
+        localStorage.setItem("saveLocal", JSON.stringify(elementUl))
+        
     }
-}
-//getTask() 
 
+   function clearAll(pos) {
 
-function addTask(){
-    const textTask= elementInput.value;
-    tasks.push(textTask)
-    elementInput.value = "";
-
-    console.log(textTask)
-
-    //var jsonTasks = JSON.stringify(tasks);
-
-    localStorage.setItem("textTask", JSON.stringify(tasks));
-
-    //console.log(window.localStorage.getItem("textTask"))
-
-    console.log(localStorage)
-
-    getTask()
-
-}
-
+        elementClear.splice(pos, 1)
+        getTask()
+    }

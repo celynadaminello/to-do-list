@@ -6,15 +6,14 @@ let elementUl = JSON.parse(localStorage.getItem("saveLocal")) || [];
 
 elementSend.setAttribute("onclick", "addTask()");
 elementInput.setAttribute("onchange", "addTask()");
-
-
+elementClear.setAttribute("onclick", "clearAll()");
 
     function addTask(){
         var textTask= elementInput.value;
 
-        if (elementInput == "") {
+        if (textTask =="") {
              
-            alert("Write your Task")
+            alert("Please, Write your Task first!")
         }
         else{
 
@@ -32,18 +31,21 @@ elementInput.setAttribute("onchange", "addTask()");
 
         for (task of elementUl){
 
-            console.log(task)
+            
             const elementTask = document.createElement("li");
             const textTask= document.createTextNode(task);
-            //const id = elementUl.indexOf(task);
-            const elementClear = document.createElement('trash');
-            const pos = elementClear.indexOf(task);
-
-            elementClear.setAttribute("onclick", `clearAll(${pos})`);
+            
+            const elementClear = document.createElement('ion-icon');
+            elementClear.setAttribute("name","trash-outline");
+            const pos = elementUl.indexOf(task);
+           
+            elementClear.setAttribute("onclick", `clearElement(${pos})`);
 
             elementTask.appendChild(textTask);
             elementList.appendChild(elementTask);
             elementTask.appendChild(elementClear);
+
+            console.log(task)
         }
 }
             getTask()
@@ -54,8 +56,16 @@ elementInput.setAttribute("onchange", "addTask()");
         
     }
 
-   function clearAll(pos) {
+   function clearElement(pos) {
 
-        elementClear.splice(pos, 1)
+        elementUl.splice(pos, 1)
         getTask()
+        saveLocal()
+    }
+
+    function clearAll(){
+
+        elementUl = [];
+        localStorage.clear();
+        elementList.innerHTML = "";
     }

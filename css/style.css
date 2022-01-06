@@ -1,32 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 *{
+    
     margin:0;
     padding:0;
     font-family: 'Poppins', 'Times New Roman', sans-serif;
 }
 
 body{
-    background-color: #CDF0EA;
-    
+
+    background-color: #CDF0EA;   
 }
 
 .title-src{
+    
     width: 500px;
     height: 100px;
-    
 }
 
 #content-task{
+
     width: 500px;
-    height: 650px;
-    margin-top: 15px;
+    min-height: 600px;
+    margin-top: 10px;
     background-color: #C490E4;
-    
+    box-shadow: 9px 7px #757375;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .title-src, #content-task{
-    
+
     text-align: center;
     color:#161853;
     border-radius: 40px;
@@ -34,7 +38,6 @@ body{
     margin-right: auto;
     position:relative;
     top:50px;
-
 }
 
 #clear-txt{
@@ -52,7 +55,14 @@ body{
     font-size: 15px;;
 }
 
+#clear-txt:hover{
+
+    background-color:#ebb6de;
+    cursor:pointer;
+}
+
 #input-txt{
+
     border:none;
     border-radius: 20px;
     padding:5px;
@@ -63,13 +73,28 @@ body{
 }
 
 #send-txt{
+
     background: none;
     border: none;
 }
+
+#send-txt:hover{
+
+    color:#C490E4;
+    cursor: pointer;
+}
+
 li {
+
     list-style-type: none;
 }
 
+ion-icon {
+
+    cursor: pointer;
+    color:#F6C6EA;
+    float: right;
+}
 
 
 

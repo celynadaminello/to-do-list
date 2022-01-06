@@ -96,6 +96,26 @@ ion-icon {
     float: right;
 }
 
+@media only screen and (max-width: 550px){
+    
+    #content-task{
+    
+        width: 450px;
+        min-height: 550px;
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+
+    #content-task{
+    
+        width: 400px;
+        min-height: 550px;
+    }
+}
+    
+
 
 
 

@@ -5,7 +5,6 @@ const elementClear = document.getElementById("clear-txt");
 let elementUl = JSON.parse(localStorage.getItem("saveLocal")) || [];
 
 elementSend.setAttribute("onclick", "addTask()");
-elementInput.setAttribute("onchange", "addTask()");
 elementClear.setAttribute("onclick", "clearAll()");
 
     function addTask(){
@@ -69,3 +68,9 @@ elementClear.setAttribute("onclick", "clearAll()");
         localStorage.clear();
         elementList.innerHTML = "";
     }
+
+    addEventListener('keypress',e=>{
+
+        if(e.key=="Enter") addTask()
+
+})
